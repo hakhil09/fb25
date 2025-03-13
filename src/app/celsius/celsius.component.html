@@ -1,0 +1,26 @@
+<div class="converter">
+    <h1>Celsius to Fahrenheit Converter</h1>
+  
+    <!-- Input field with two-way binding -->
+    <div>
+      <label>Celsius (°C):
+        <input type="number" [(ngModel)]="celsius" placeholder="Enter temperature in Celsius">
+      </label>
+    </div>
+  
+    <!-- Buttons with event binding -->
+    <div class="buttons">
+      <button (click)="convertToFahrenheit()" [disabled]="celsius === null || celsius === undefined || celsius < -273.15">
+        Convert
+      </button>
+      <button (click)="clear()">Clear</button>
+    </div>
+  
+    <!-- Display result with interpolation -->
+    <div class="result">
+      <h2 *ngIf="fahrenheit >= -459.67">Fahrenheit (°F): {{ fahrenheit | number:'1.2-2' }}</h2>
+      <p *ngIf="celsius < -273.15" class="error">
+        Temperature cannot be below absolute zero (-273.15°C)!
+      </p>
+    </div>
+  </div>

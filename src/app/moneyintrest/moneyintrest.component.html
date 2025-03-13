@@ -1,0 +1,36 @@
+<div class="calculator">
+    <h1>Simple Interest Calculator</h1>
+  
+    <!-- Input fields with two-way binding -->
+    <div>
+      <label>Principal (P):
+        <input type="number" [(ngModel)]="principal" placeholder="Enter principal amount">
+      </label>
+    </div>
+    <div>
+      <label>Rate of Interest (R, in %):
+        <input type="number" [(ngModel)]="rate" placeholder="Enter rate of interest">
+      </label>
+    </div>
+    <div>
+      <label>Time (T, in years):
+        <input type="number" [(ngModel)]="time" placeholder="Enter time in years">
+      </label>
+    </div>
+  
+    <!-- Buttons with event binding -->
+    <div class="buttons">
+      <button (click)="calculateSimpleInterest()" [disabled]="principal <= 0 || rate <= 0 || time <= 0">
+        Calculate
+      </button>
+      <button (click)="clear()">Clear</button>
+    </div>
+  
+    <!-- Display result with interpolation -->
+    <div class="result">
+      <h2 *ngIf="simpleInterest >= 0">Simple Interest: {{ simpleInterest | number:'1.2-2' }}</h2>
+      <p *ngIf="principal < 0 || rate < 0 || time < 0" class="error">
+        Please enter positive values for all inputs!
+      </p>
+    </div>
+  </div>

@@ -1,0 +1,21 @@
+
+<button (click)="click()">Click me</button>
+
+<input type="text" (keyup)="submit()">
+
+
+<h1>Name:{{name}}</h1>
+<h1>Age:{{age}}</h1>
+<button [disabled]="isData">Submit</button>
+
+
+<input type="text" [(ngModel)]="mobile" (keyup)="submit()">
+
+<h1>Calculator</h1>
+
+<h3>{{result}}</h3>
+<label>Number 1:</label>
+<input type="number" [(ngModel)]="num1"><br>
+<label>Number 1:</label>
+<input type="number" [(ngModel)]="num2"><br>
+<button (click)="add()" [disabled]="!num1  || !num2">Add</button>
